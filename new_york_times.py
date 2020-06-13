@@ -26,12 +26,12 @@ def download_nyt_image(url):
         photoWithClass = ""
         try:
             photoWithClass = a["class"][0] 
-        except KeyError:
+        except Exception:
             photoWithClass = ''
 
         if pattern.match(photoWithClass):
             try:
                 image_info.append((a["src"], a['alt']))
-            except KeyError:
+            except Exception:
                 image_info.append((a["src"], "default"))
     return (image_info[:1] or [None])[0]
