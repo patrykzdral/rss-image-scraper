@@ -20,7 +20,6 @@ def download_bbc_image(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
     aasClass1 = soup.find_all("img")
-    print(aasClass1)
     pattern = re.compile("^js-image-.*$")
     image_info = []
     for a in aasClass1:
